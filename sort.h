@@ -22,9 +22,8 @@ typedef struct listint_s
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
+/* Define any other function prototypes*/
 void int_swap(int *int_1, int *int_2);
 void bubble_sort(int *array, size_t size);
-
-/* Define any other function prototypes or data structures here */
 
 #endif /* SORT_H */
