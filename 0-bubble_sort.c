@@ -2,21 +2,22 @@
 
 /**
  * int_swap - Swap two integers in an array.
- * @int_1: The first integer to swap.
- * @int_2: The second integer to swap.
+ * @int1: The first integer to swap.
+ * @int2: The second integer to swap.
  *
  */
-void int_swap(int *int_1, int *int_2)
+void int_swap(int *int1, int *int2)
 {
     int temp;
     
-    temp = *int_1;
-    *int_1 = *int_2;
-    *int_2 = temp;
+    temp = *int1;
+    *int1 = *int2;
+    *int2 = temp;
 }
 
 /**
- * bubble_sort - Sorts an array of integers in ascending order using the Bubble sort algorit.
+ * bubble_sort - Sorts an array of integers in ascending order
+ * using the Bubble sort algorithm.
  * @array: Pointer to the array to be sorted.
  * @size: Size of the array.
  * 
