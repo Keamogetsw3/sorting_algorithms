@@ -7,7 +7,7 @@
  *
  * Return: + if str1 > str2, 0 if str1 == str2, - if str1 < str2
  */
-int _strcmp(const char *str1, const char *str2)
+int _strncmp(const char *str1, const char *str2)
 {
 	while (*str1 && *str2 && *str1 == *str2)
 	{
