@@ -5,14 +5,14 @@
  * @array: Array of integers
  * @size: Size of the array
  *
- * Returns:nThe maximum integer in the array.
+ * Returns: The maximum integer in the array.
  */
 int get_max(int *array, int size)
 {
 	int int_max;
 	int i;
 
-	max = array[0];
+	int_max = array[0];
 	for (i = 1; i < size; i++)
 	{
 		if (array[i] > int_max)
@@ -32,10 +32,8 @@ int get_max(int *array, int size)
  */
 void radix_counting_sort(int *array, size_t size, int sig, int *buffer)
 {
-	int count[10];
+	int count[10] = {0};
 	size_t i;
-	
-	count[10] = {0};
 	
 	for (i = 0; i < size; i++)
 		count[(array[i] / sig) % 10]++;
@@ -72,9 +70,9 @@ void radix_sort(int *array, size_t size)
 
 	int_max = get_max(array, size);
 
-	for (sig = 1; max / sig > 0; sig *= 10)
+	for (sig = 1; int_max / sig > 0; sig *= 10)
 	{
-		radix_counting_sort(array, size, significant_digit, buffer);
+		radix_sort(array, size, sig, buffer);
 d.
 		print_array(array, size);
 	}
