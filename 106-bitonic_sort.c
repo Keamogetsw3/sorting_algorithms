@@ -24,7 +24,7 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq_size,
             if ((sort_dir == UP && array[index] > array[index + half_seq]) ||
                 (sort_dir == DOWN && array[index] < array[index + half_seq]))
             {
-                int_swap(array + index, array + index + half_seq);
+                swap_print(array + index, array + index + half_seq);
             }
         }
         bitonic_merge(array, size, start, half_seq, sort_dir);
