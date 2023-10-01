@@ -26,4 +26,10 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 
+
+/* Functions Prototype */
+void sort_deck(deck_node_t **deck);
+int compare_cards(const void *a, const void *b);
+int _strcmp(const char *str1, const char *str2);
+
 #endif /* DECK_H */
