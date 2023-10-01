@@ -20,55 +20,37 @@ int _strncmp(const char *str1, const char *str2)
 	return (0);
 }
 
-/**
- * compare_cards - Comparison function for qsort
- * @a: Pointer to the first deck_node_t pointer
- * @b: Pointer to the second deck_node_t pointer
+/*
+ * get_value - Calculate the numeric value of a playing card.
+ * @node: Pointer to a card node in a deck.
  *
- * Return: -1 if a < b, 1 if a > b, 0 if they are equal.
+ * Return: An integer between 1 and 52,
+ * representing the card's value in the deck.
  */
-int compare_cards(const void *a, const void *b)
+int get_value(deck_node_t *node)
 {
-    const deck_node_t *node_a = *(const deck_node_t **)a;
-    const deck_node_t *node_b = *(const deck_node_t **)b;
+    char *card_values[13] = {"Ace", "2", "3", "4", "5", "6",
+        "7", "8", "9", "10", "Jack", "Queen", "King"};
+
+    char *card_kinds[4] = {"SPADE", "HEART", "CLUB", "DIAMOND"};
+    int suit_offset = 0;
+    int val = 0;
+    int i = 0;
+
+
+    for (i = 0; i < 13; i++)
+    {
+        if (_strncmp(node->card->value, card_values[i]) == 0)
+            val = i + 1;
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        if (_strncmp(card_suits[node->card->kind], card_suits[i]) == 0)
+            suit_offset += (13 * (i + 1));
+    }
     
-    if (node_a->card->kind < node_b->card->kind)
-        return -1;
-    
-    else if (node_a->card->kind > node_b->card->kind)
-        return 1;
-    else
-    {
-        return _strncmp(node_a->card->value, node_b->card->value);
-    }
+    int card_value = value_index + suit_offset;
+
+    return (card_value);
 }
-
-
-/**
- * sort_deck - Sort a deck of cards in ascending order
- * @deck: Double pointer to the head of the deck
- *
- */
-void sort_deck(deck_node_t **deck)
-{
-    deck_node_t *nodes[52];
-    deck_node_t *current = *deck;
-    int i;
-
-    for (i = 0; i < 52; i++)
-    {
-        nodes[i] = current;
-        current = current->next;
-    }
-
-    for (i = 0; i < 51; i++)
-    {
-        nodes[i]->next = nodes[i + 1];
-        nodes[i + 1]->prev = nodes[i];
-    }
-
-    *deck = nodes[0];
-    nodes[0]->prev = NULL;
-    nodes[51]->next = NULL;
-}
-
