@@ -28,7 +28,7 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq_size,
             }
         }
         bitonic_merge(array, size, start, half_seq, sort_dir);
-        bitonic_merge(array, size, start + half_seq, half_seq, sort_dir;
+        bitonic_merge(array, size, start + half_seq, half_seq, sort_dir);
     }
 }
 
@@ -52,7 +52,7 @@ void bitonic_con(int *array, size_t size, size_t start, size_t seq_size,
         print_array(array + start, seq_size);
 
         bitonic_con(array, size, start, half_seq, UP);
-        bitonic_con(array, size, start + half_seqe, half_seq, DOWN);
+        bitonic_con(array, size, start + half_seq, half_seq, DOWN);
         bitonic_merge(array, size, start, seq_size, sort_dir);
 
         printf("Result [%lu/%lu] (%s):\n", seq_size, size, dir_string);
