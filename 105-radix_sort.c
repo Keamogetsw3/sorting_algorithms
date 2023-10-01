@@ -73,7 +73,6 @@ void radix_sort(int *array, size_t size)
 	for (sig = 1; int_max / sig > 0; sig *= 10)
 	{
 		radix_counting_sort(array, size, sig, buffer);
-d.
 		print_array(array, size);
 	}
 	free(buffer);
