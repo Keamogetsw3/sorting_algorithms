@@ -34,5 +34,11 @@ void quick_sort(int *array, size_t size);
 int partition_hoare(int *array, int low, int high);
 void quick_sort_recursive(int *array, int low, int high);
 void quick_sort_hoare(int *array, size_t size);
+void bitonic_merge(int *array, size_t size, size_t start, size_t seq_size,
+                   char sort_dir);
+void bitonic_con(int *array, size_t size, size_t start, size_t seq_size,
+                 char sort_dir);
+void bitonic_sort(int *array, size_t size);
+
 
 #endif /* SORT_H */
