@@ -12,6 +12,9 @@
  */
 int lomuto_partition(int *array, size_t size, int strt_indx, int end_indx)
 {
+    if (array == NULL || size < 2 || strt_indx < 0 || end_indx < 0 || strt_indx >= size || end_indx >= size)
+        return -1;
+
     int *pivot_element;
     int part_indx;
     int i;
@@ -24,7 +27,6 @@ int lomuto_partition(int *array, size_t size, int strt_indx, int end_indx)
             if (part_indx < i)
             {
                 int_swap(array + i, array + part_indx);
-                print_array(array, size);
             }
             part_indx++;
         }
@@ -32,7 +34,7 @@ int lomuto_partition(int *array, size_t size, int strt_indx, int end_indx)
     if (array[part_indx] > *pivot_element)
     {
         int_swap(array + part_indx, pivot_element);
-        print_array(array, size);
+        // You should have a print_array function here to print the array
     }
     return (part_indx);
 }
@@ -47,11 +49,9 @@ int lomuto_partition(int *array, size_t size, int strt_indx, int end_indx)
  */
 void lomuto_sort(int *array, size_t size, int strt_indx, int end_indx)
 {
-    int part_indx;
-
-    if (end_indx - strt_indx > 0)
+    if (strt_indx < end_indx)
     {
-        part_indx = lomuto_partition(array, size, strt_indx, end_indx);
+        int part_indx = lomuto_partition(array, size, strt_indx, end_indx);
         lomuto_sort(array, size, strt_indx, part_indx - 1);
         lomuto_sort(array, size, part_indx + 1, end_indx);
     }
