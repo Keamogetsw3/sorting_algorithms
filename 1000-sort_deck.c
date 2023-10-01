@@ -33,9 +33,10 @@ int get_value(deck_node_t *node)
         "7", "8", "9", "10", "Jack", "Queen", "King"};
 
     char *card_kinds[4] = {"SPADE", "HEART", "CLUB", "DIAMOND"};
-    int suit_offset = 0;
+    int kind_offset = 0;
     int val = 0;
     int i = 0;
+    int card_value;
 
 
     for (i = 0; i < 13; i++)
@@ -46,11 +47,11 @@ int get_value(deck_node_t *node)
 
     for (i = 0; i < 4; i++)
     {
-        if (_strncmp(card_suits[node->card->kind], card_suits[i]) == 0)
-            suit_offset += (13 * (i + 1));
+        if (_strncmp(card_kinds[node->card->kind], card_kinds[i]) == 0)
+            kind_offset += (13 * (i + 1));
     }
     
-    int card_value = value_index + suit_offset;
+    card_value = val + kind_offset;
 
     return (card_value);
 }
