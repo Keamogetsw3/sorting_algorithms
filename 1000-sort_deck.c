@@ -55,7 +55,7 @@ void sort_deck(deck_node_t **deck)
     deck_node_t *current = *deck;
     int i;
 
-    for (i = 0; i < 52; i++) // Use 'i' in both loops
+    for (i = 0; i < 52; i++)
     {
         nodes[i] = current;
         current = current->next;
