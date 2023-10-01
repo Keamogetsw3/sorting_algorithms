@@ -53,16 +53,15 @@ void sort_deck(deck_node_t **deck)
 {
     deck_node_t *nodes[52];
     deck_node_t *current = *deck;
-    
-    for (int i = 0; i < 52; i++)
+    int i;
+
+    for (i = 0; i < 52; i++) // Use 'i' in both loops
     {
         nodes[i] = current;
         current = current->next;
     }
-    
-    qsort(nodes, 52, sizeof(deck_node_t *), compare_cards);
 
-    for (int i = 0; i < 51; i++)
+    for (i = 0; i < 51; i++)
     {
         nodes[i]->next = nodes[i + 1];
         nodes[i + 1]->prev = nodes[i];
@@ -72,3 +71,4 @@ void sort_deck(deck_node_t **deck)
     nodes[0]->prev = NULL;
     nodes[51]->next = NULL;
 }
+
