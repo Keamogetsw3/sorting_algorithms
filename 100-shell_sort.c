@@ -1,7 +1,15 @@
-oid shell_sort(int *array, size_t size)
+#include "sort.h"
+
+/**
+ * shell_sort - Sorts an array of integers in ascending order
+ * using the Shell sort algorithm with the Knuth sequence
+ * @array: The array of integers to be sorted.
+ * @size: The number of elements in the array.
+ */
+void shell_sort(int *array, size_t size)
 {
     size_t gap;
-    size_t inner
+    size_t inner;
     size_t outer;
     int current_element;
 
