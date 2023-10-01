@@ -50,5 +50,3 @@ void bubble_sort(int *array, size_t size)
             break;
     }
 }
-
->>>>>>> 1584b948fd88b1881aebde0c44bbc08a33ceb00e
