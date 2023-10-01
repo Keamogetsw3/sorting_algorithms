@@ -6,6 +6,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define UP 1
+#define DOWN 0
+
+
 /**
  * struct listint_s - Doubly linked list node
  *
