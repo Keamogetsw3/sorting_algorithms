@@ -29,7 +29,7 @@ typedef struct deck_node_s
 
 /* Functions Prototype */
 void sort_deck(deck_node_t **deck);
-int compare_cards(const void *a, const void *b);
+int get_value(deck_node_t *node);
 int _strcmp(const char *str1, const char *str2);
 
 #endif /* DECK_H */
