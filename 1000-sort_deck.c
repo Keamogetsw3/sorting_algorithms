@@ -115,7 +115,8 @@ insertion = current->prev;
 }
 }
 /**
-* sort_deck - Sort a deck of cards from Ace to King and from Spades to Diamonds.
+* sort_deck - Sort a deck of cards from
+* Ace to King and from Spades to Diamonds.
 * @deck: Pointer to the head of a double-linked list.
 *
 * Return: void
