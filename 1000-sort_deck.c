@@ -5,7 +5,8 @@
  * @str1: First string.
  * @str2: Second string.
  *
- * Return: Positive byte if str1 > str2, 0 if str1 == str2, Negative byte if str1 < str2.
+ * Return: Positive byte if str1 > str2, 0 if str1 == str2,
+ * Negative byte if str1 < str2.
  */
 int _strncmp(const char *str1, const char *str2)
 {
