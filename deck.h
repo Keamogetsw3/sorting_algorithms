@@ -29,8 +29,11 @@ typedef struct deck_node_s
 
 
 /* Functions Prototype */
-void sort_deck(deck_node_t **deck);
-int get_value(deck_node_t *node);
 int _strncmp(const char *str1, const char *str2);
+char get_value(deck_node_t *card);
+void sort_kind(deck_node_t **deck);
+void sort_value(deck_node_t **deck);
+void sort_deck(deck_node_t **deck);
+
 
 #endif /* DECK_H */
