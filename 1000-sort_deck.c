@@ -1,3 +1,5 @@
+#include "deck.h"
+
 /**
  * _strncmp - Compare two strings.
  * @str1: First string.
