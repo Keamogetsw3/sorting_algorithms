@@ -17,7 +17,7 @@ temp = *int1;
 * using the Bubble sort algorithm.
 * @array: Pointer to the array to be sorted.
 * @size: Size of the array.
-* 
+*
 */
 void bubble_sort(int *array, size_t size)
 {
