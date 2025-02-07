@@ -32,17 +32,30 @@ return (current);
 */
 void insertion_sort_list(listint_t **list)
 {
-listint_t *node;
-if (!list || !*list || !(*list)->next)
-return;
-node = (*list)->next;
-while (node)
-{
-while (node->prev && node->prev->n > node->n)
-{
-node = left_swap(node, list);
-print_list(*list);
-}
-node = node->next;
-}
+	listint_t *current, *swap, *prv;
+
+	if (!list || !*list)
+		return;
+
+	current = *list;
+	while ((current = current->next))
+	{
+		swap = current;
+		while (swap->prev && swap->n < swap->prev->n)
+		{
+			prv = swap->prev;
+			if (swap->next)
+				swap->next->prev = prv;
+			if (prv->prev)
+				prv->prev->next = swap;
+			else
+				*list = swap;
+			prv->next = swap->next;
+			swap->prev = prv->prev;
+			swap->next = prv;
+			prv->prev = swap;
+
+			print_list(*list);
+		}
+	}
 }
