@@ -1,37 +1,58 @@
 #include "sort.h"
+
 /**
-* shell_sort - Sorts an array of integers in ascending order
-* using the Shell sort algorithm with the Knuth sequence
-* @array: The array of integers to be sorted.
-* @size: The number of elements in the array.
-*/
+ * swap - Function that swaps two values
+ *
+ * @a: Fisrt value
+ * @b: Second value
+ * Return: 0
+ */
+void swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
+}
+
+/**
+ * gap_sort - sort array with gaps
+ * @array: array to be sorted
+ * @size: size of array
+ * @gap: gap size
+ */
+void gap_sort(int *array, size_t size, unsigned int gap)
+{
+	size_t j, k;
+
+	for (j = gap; j < size; j++)
+	{
+		k = j;
+		while (k >= gap && array[k] < array[k - gap])
+		{
+			swap(array + k, array + k - gap);
+			k -= gap;
+		}
+	}
+}
+
+/**
+ * shell_sort - shell sort
+ * @array: array to be sorted
+ * @size: size of array
+ */
 void shell_sort(int *array, size_t size)
 {
-size_t gap;
-size_t inner;
-size_t outer;
-int current_element;
-if (!array || size < 2)
-return;
-gap = 1;
-while (gap < size / 3)
-{
-gap = gap * 3 + 1;
-}
-while (gap > 0)
-{
-for (outer = gap; outer < size; outer++)
-{
-current_element = array[outer];
-inner = outer;
-while (inner > gap - 1 && array[inner - gap] >= current_element)
-{
-array[inner] = array[inner - gap];
-inner = inner - gap;
-}
-array[inner] = current_element;
-}
-gap = (gap - 1) / 3;
-print_array(array, size);
-}
+	unsigned int gap = 1;
+
+	while (gap < size / 3)
+		gap = gap * 3 + 1;
+
+	while (gap >= 1)
+	{
+		gap_sort(array, size, gap);
+		gap = (gap - 1) / 3;
+		print_array(array, size);
+	}
 }
